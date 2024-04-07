@@ -1,34 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
+import Navbar from './components/Navbar'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const current_theme = localStorage.getItem('current_theme');
+  const [theme, setTheme] = useState(current_theme ? current_theme : 'light');
+
+  useEffect(() => {
+    localStorage.setItem('current_theme', theme)
+  }, [theme])
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className={`container ${theme}`}>
+      <BrowserRouter >
+        <Navbar theme={theme} setTheme={setTheme} />
+        <Routes>
+          <Route exact path='/' element={<span>Home Page</span>} />
+          <Route exact path='*' element={<Navigate to="/" />} />
+          <Route exact path='/user' element={<span>User Profile</span>} />
+          <Route exact path='/settings' element={<span>settings Page</span>} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   )
 }
 
