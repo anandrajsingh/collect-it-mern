@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import Navbar from './components/Navbar'
+import Homepage from './components/Homepage'
+import Profile from './components/Profile'
+import Settings from './components/Settings'
+import AboutUs from './components/About Us'
 
 function App() {
 
@@ -17,10 +21,11 @@ function App() {
       <BrowserRouter >
         <Navbar theme={theme} setTheme={setTheme} />
         <Routes>
-          <Route exact path='/' element={<span>Home Page</span>} />
+          <Route exact path='/' element={<Homepage/>} />
           <Route exact path='*' element={<Navigate to="/" />} />
-          <Route exact path='/user' element={<span>User Profile</span>} />
-          <Route exact path='/settings' element={<span>settings Page</span>} />
+          <Route exact path='/profile' element={ <Profile/> } />
+          <Route exact path='/settings' element={<Settings/>} />
+          <Route exact path='/about' element={<AboutUs/>} />
         </Routes>
       </BrowserRouter>
     </div>
