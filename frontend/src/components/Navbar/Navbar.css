@@ -118,12 +118,16 @@ ul li a:not(.active):hover {
     }
 
     .toggle-icon {
+        display: none;
         width: 50px;
         cursor: pointer;
         margin-left: 8rem;
     }
 
     .toggle-icon-open {
-        display: none;
+        display:block;
+        width: 50px;
+        cursor: pointer;
+        margin-left: 8rem;
     }
 }

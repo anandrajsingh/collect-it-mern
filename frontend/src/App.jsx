@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import Navbar from './components/Navbar'
-import Homepage from './components/Homepage'
-import Profile from './components/Profile'
-import Settings from './components/Settings'
-import AboutUs from './components/About Us'
+import Homepage from './pages/Homepage'
+import Profile from './pages/Profile'
+import Settings from './pages/Settings'
+import AboutUs from './pages/About Us'
 
 function App() {
 

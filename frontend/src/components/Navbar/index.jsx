@@ -29,7 +29,7 @@ function Navbar({ theme, setTheme }) {
         <li><NavLink to="/about">About Us</NavLink></li>
       </ul>
 
-      <img onClick={() => { toggle_mode() }} src={theme == 'light' ? toggle_night : toggle_day} alt="" className={menuOpen ? "toggle-icon" : "toggle-icon-open"} />
+      <img onClick={() => { toggle_mode() }} src={theme == 'light' ? toggle_night : toggle_day} alt="" className={menuOpen ? "toggle-icon-open" : "toggle-icon"} />
 
     </div>
   )
